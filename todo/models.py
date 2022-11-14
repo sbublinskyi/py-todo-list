@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Tags(models.Model):
+class Tag(models.Model):
     name = models.CharField(max_length=127)
 
 
@@ -10,4 +10,4 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     deadline = models.DateTimeField(blank=True)
     is_completed = models.BooleanField()
-    tags = models.ManyToManyField(Tags, related_name="tasks")
+    tags = models.ManyToManyField(Tag, related_name="tasks")
