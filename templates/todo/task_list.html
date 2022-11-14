@@ -31,6 +31,9 @@
             <span class="text-danger">Not done</span>
           {% endif %}
         </p>
+        {% if task.deadline %}
+          <p>Deadline: {{ task.deadline }}</p>
+        {% endif %}
         <p>Created: {{ task.created_at }}</p>
         <p class="text-muted">Tags: {% for tag in task.tags.all %}
           {{ tag.name }}
