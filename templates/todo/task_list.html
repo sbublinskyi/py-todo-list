@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="display-3">
+    Cars
+    <a href="#" class="btn btn-primary link-to-page">
+      Create a Task
+    </a>
+  </h1>
+  <br>
+
+  {% if task_list %}
+    {% for task in task_list %}
+      <h5>{{ task.content }} {{ task.is_completed|yesno:"Done,Not done" }}</h5>
+      <p>Created: {{ task.created_at }}</p>
+      <p>Tags: {% for tag in task.tags.all %}
+        {{ tag.name }}
+      {% endfor %}
+      </p>
+      <hr>
+    {% endfor %}
+
+  {% else %}
+    <p>There nothing to show</p>
+  {% endif %}
+
+{% endblock %}
